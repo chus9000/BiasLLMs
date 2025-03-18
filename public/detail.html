@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Detail - Bias in LLMs</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/detail.css">
+</head>
+<body>
+    <header>
+        <a href="/" class="logo">
+            <div class="logo-top">BIAS IN</div>
+            <div class="logo-bottom">LLMS</div>
+        </a>
+        <nav>
+            <a href="/about">About this project</a>
+        </nav>
+    </header>
+
+    <div class="detail-container">
+        <section class="text-section">
+            <p id="main-text"></p>
+            <div class="detail-actions">
+                <button class="copy-btn" onclick="copyText()">Copy</button>
+            </div>
+        </section>
+        
+        <section class="detail-info">
+            <div class="info-container">
+                <div class="categories-section" id="categories"></div>
+                <div class="why-section">
+                    <h2>Why is this biased?</h2>
+                    <p id="why-text"></p>
+                </div>
+                <div class="how-section">
+                    <h2>How can you reduce the bias?</h2>
+                    <p id="how-text"></p>
+                </div>
+            </div>
+        </section>
+        <section class="related-cards">
+            <h2>Related Examples</h2>
+            <div id="related-cards-container"></div>
+        </section>
+    </div>
+
+    <footer id="main-footer"></footer>
+
+    <script src="/js/footer.js"></script>
+    <script src="/js/detail.js"></script>
+
+
+
+    <script type="text/javascript" src="//embeds.iubenda.com/widgets/a54274f1-c14d-4c4d-82ed-2a8f472205ce.js"></script>
+    
+
+</body>
+</html>

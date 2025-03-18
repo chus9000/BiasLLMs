@@ -1,0 +1,39 @@
+/* public/css/card.css */
+.card {
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.card.fixed {
+    cursor: default;
+    background: #f0f0f0;
+}
+
+.copy-btn {
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+}
+
+.categories {
+    margin-top: 1rem;
+}
+
+.categories span {
+    padding: 0.25rem 0.5rem;
+    margin-right: 0.5rem;
+    border-radius: 4px;
+    background: rgba(0,0,0,0.1);
+}
+
+/* Add category-specific background colors */
+.category-racial-bias { background: #ffeded; }
+.category-gender-bias { background: #edf5ff; }
+.category-religious-bias { background: #f0edff; }
+.category-cultural-bias { background: #edffe9; }

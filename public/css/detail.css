@@ -1,0 +1,236 @@
+/* public/css/detail.css */
+.detail-container {
+    min-height: calc(100vh - 64px); /* Subtract header height */
+    display: flex;
+    flex-direction: column;
+}
+
+.text-section {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background: var(--bg-white);
+    position: relative;
+}
+
+.text-section p {
+    font-size: 2rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--text-primary);
+}
+
+.text-section .copy-btn {
+    margin-top: 2rem; /* Closer to text */
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+}
+
+.detail-info {
+    padding: 3rem 2rem;
+    background: var(--bg-primary);
+    flex-grow: 1;
+}
+
+.info-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.categories-section {
+    margin-bottom: 2rem;
+}
+
+.categories-section a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--bg-white);
+    border-radius: 20px;
+    text-decoration: none;
+    color: var(--text-secondary);
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+}
+
+.categories-section a:hover {
+    background: var(--border-color);
+    color: var(--text-primary);
+}
+
+.why-section, .how-section {
+    margin-bottom: 2rem;
+    background: var(--bg-white);
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.why-section h2, .how-section h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.why-section p, .how-section p {
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+
+.category-tab {
+    padding: 0.5rem 1rem;
+    border: 1px solid currentColor;
+    background: transparent;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.875rem;
+    margin: 0.25rem;
+}
+
+.category-tab:hover {
+    background-color: rgba(99, 102, 241, 0.1);
+}
+
+#categories {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+
+
+
+
+
+
+.related-cards {
+    margin-top: 3rem;
+    padding: 0 2rem;
+}
+
+.related-cards h2 {
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+#related-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.related-cards .card {
+    flex: 1 1 300px;
+    max-width: calc(33.333% - 1rem); /* Ensures 3 cards per row with gap */
+    margin: 0; /* Remove any default margins */
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1200px) {
+    .related-cards .card {
+        max-width: calc(50% - 1rem); /* 2 cards per row */
+    }
+}
+
+@media (max-width: 768px) {
+    .related-cards {
+        padding: 0 1rem;
+    }
+    
+    .related-cards .card {
+        max-width: 100%; /* 1 card per row */
+        flex-basis: 100%;
+    }
+}
+
+
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .text-section {
+        height: 70vh;
+        padding: 1rem;
+    }
+
+    .text-section p {
+        font-size: 1.25rem;
+    }
+
+    .detail-info {
+        padding: 2rem 1rem;
+    }
+
+    .why-section, .how-section {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .text-section p {
+        font-size: 1.125rem;
+    }
+}
+
+
+
+footer {
+    margin-top: 3rem;
+}
+
+
+/* Update in style.css or detail.css */
+.card {
+    /* Remove any height-related properties */
+    display: block; /* Instead of flex */
+    background: var(--bg-white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-content {
+    /* Remove any flex properties */
+    padding: 1.5rem;
+}
+
+/* For related cards specifically */
+.related-cards .card {
+    flex: 0 1 calc(33.333% - 1rem); /* Change from 1 1 to 0 1 to prevent stretching */
+    height: 100%; /* Explicitly set height to auto */
+    max-width: calc(33.333% - 1rem);
+    margin: 0;
+}
+
+/* Keep your responsive breakpoints */
+@media (max-width: 1200px) {
+    .related-cards .card {
+        flex: 0 1 calc(50% - 1rem);
+        max-width: calc(50% - 1rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .related-cards {
+        padding: 0 1rem;
+    }
+    
+    .related-cards .card {
+        flex: 0 1 100%;
+        max-width: 100%;
+    }
+}
+
