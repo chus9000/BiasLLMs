@@ -34,14 +34,18 @@ async function loadPrompt() {
 }
 
 function copyText() {
-    const text = document.getElementById('main-text').textContent;
-    navigator.clipboard.writeText(text);
-    const btn = document.querySelector('.copy-btn');
-    btn.textContent = 'Copied!';
-    setTimeout(() => {
-        btn.textContent = 'Copy';
-    }, 2000);
+    const text = document.getElementById('main-text').textContent;  // This gets the text content
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = document.querySelector('.copy-btn');
+        btn.textContent = 'Copied!';
+        setTimeout(() => {
+            btn.textContent = 'Copy';
+        }, 2000);
+    }).catch(err => {
+        console.error('Failed to copy text: ', err);
+    });
 }
+
 
 function setupCategoryLinks() {
     const categoriesSection = document.getElementById('categories');
@@ -144,17 +148,21 @@ function createCard(data) {
 }
 
 // Add click handler for copy buttons in related cards
+
 document.addEventListener('click', (e) => {
     if (e.target.classList.contains('copy-btn')) {
-        const text = e.target.dataset.text;
-        navigator.clipboard.writeText(text).then(() => {
-            e.target.textContent = 'Copied!';
-            setTimeout(() => {
-                e.target.textContent = 'Copy';
-            }, 2000);
-        }).catch(err => {
-            console.error('Failed to copy text: ', err);
-        });
+        // Only handle related cards' copy buttons here
+        if (e.target.hasAttribute('data-text')) {
+            const text = e.target.dataset.text;
+            navigator.clipboard.writeText(text).then(() => {
+                e.target.textContent = 'Copied!';
+                setTimeout(() => {
+                    e.target.textContent = 'Copy';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        }
     }
 });
 
