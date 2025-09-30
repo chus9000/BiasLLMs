@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bias LLMs - An exploration about bias in LLMs by Jesus Martin</title>
+    <meta name="description" content="This is a personal project about LLM biases. Take the prompts in this page and paste them into you favorite LLM tool to validate how biases impact the result.">
+    <meta name="keywords" content="AI bias, LLM bias, artificial intelligence, machine learning, bias detection, responsible AI">
+    <meta name="author" content="Jesús Martín">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://biasinllms.com/">
+    <meta property="og:title" content="Bias LLMs - An exploration about bias in LLMs by Jesus Martin">
+    <meta property="og:description" content="This is a personal project about LLM biases. Take the prompts in this page and paste them into you favorite LLM tool to validate how biases impact the result.">
+    <meta property="og:image" content="images/thumbnail.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://biasinllms.com/">
+    <meta property="twitter:title" content="Bias LLMs - An exploration about bias in LLMs by Jesus Martin">
+    <meta property="twitter:description" content="This is a personal project about LLM biases. Take the prompts in this page and paste them into you favorite LLM tool to validate how biases impact the result.">
+    <meta property="twitter:image" content="images/thumbnail.jpg">
+    
+    <link rel="icon" type="image/png" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLSG8QMX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+</head>
+<body>
+    <header>
+        <a href="#" class="logo" onclick="showHome()">
+            <div class="logo-top">BIAS IN</div>
+            <div class="logo-bottom">LLMS</div>
+        </a>
+        <nav>
+            <a href="#" onclick="showAbout()" id="nav-link">About this project</a>
+        </nav>
+    </header>
+
+    <div id="home-view">
+        <div class="category-dropdown">
+            <button class="category-dropdown-btn" data-selected="all">All Categories</button>
+            <div class="category-dropdown-overlay"></div>
+            <div class="category-dropdown-content" id="category-dropdown-content"></div>
+        </div>
+        <div id="category-tabs"></div>
+        <div id="cards-container"></div>
+    </div>
+
+    <div id="detail-view" style="display: none;">
+        <div class="detail-container">
+            <section class="text-section">
+                <p id="main-text"></p>
+                <div class="detail-actions">
+                    <button class="copy-btn" onclick="copyDetailText()">Copy</button>
+                </div>
+            </section>
+            
+            <section class="detail-info">
+                <div class="info-container">
+                    <div class="categories-section" id="categories"></div>
+                    <div class="why-section">
+                        <h2>Why is this biased?</h2>
+                        <p id="why-text"></p>
+                    </div>
+                    <div class="how-section">
+                        <h2>How can you reduce the bias?</h2>
+                        <p id="how-text"></p>
+                    </div>
+                </div>
+            </section>
+            <section class="related-cards">
+                <h2>Related Examples</h2>
+                <div id="related-cards-container"></div>
+            </section>
+        </div>
+    </div>
+
+    <div id="privacy-view" style="display: none;">
+        <main class="about-content">
+            <div class="about-container">
+                <h1>Privacy Policy</h1>
+                <p style="color: var(--text-secondary); margin-bottom: 2rem;">Last updated: December 2024</p>
+                
+                <h2>Information We Collect</h2>
+                <p>When you use Bias in LLMs, we collect:</p>
+                <ul>
+                    <li>Usage analytics through Google Analytics</li>
+                    <li>Cookie consent preferences</li>
+                    <li>No personal information is stored or collected</li>
+                </ul>
+                
+                <h2>How We Use Your Information</h2>
+                <p>We use collected data to:</p>
+                <ul>
+                    <li>Understand how visitors interact with the site</li>
+                    <li>Improve the educational content and user experience</li>
+                    <li>Remember your cookie preferences</li>
+                </ul>
+                
+                <h2>Data Storage</h2>
+                <p>We do not store personal data. Analytics data is processed by Google Analytics according to their privacy policy.</p>
+                
+                <h2>Cookies</h2>
+                <p>We use cookies for analytics and to remember your cookie consent. You can control cookie settings through your browser.</p>
+                
+                <h2>Contact</h2>
+                <p>For privacy questions, contact: <a href="mailto:hi@jesusmartin.eu">hi@jesusmartin.eu</a></p>
+            </div>
+        </main>
+    </div>
+
+    <div id="terms-view" style="display: none;">
+        <main class="about-content">
+            <div class="about-container">
+                <h1>Terms of Service</h1>
+                <p style="color: var(--text-secondary); margin-bottom: 2rem;">Last updated: December 2024</p>
+                
+                <h2>Acceptance of Terms</h2>
+                <p>By accessing and using Bias in LLMs, you accept and agree to be bound by these terms.</p>
+                
+                <h2>Educational Purpose</h2>
+                <p>This tool is provided for educational purposes to help users understand and identify biases in Large Language Models. All content is free to use for learning and research.</p>
+                
+                <h2>Use License</h2>
+                <p>Permission is granted to use this tool for personal, educational, and research purposes. You may not:</p>
+                <ul>
+                    <li>Use the content for commercial purposes without permission</li>
+                    <li>Attempt to reverse engineer the website</li>
+                    <li>Remove copyright or attribution notices</li>
+                </ul>
+                
+                <h2>Content</h2>
+                <p>All bias examples and educational materials are the intellectual property of Jesús Martín. The content is provided as-is for awareness and educational purposes.</p>
+                
+                <h2>Disclaimer</h2>
+                <p>The materials are provided on an 'as is' basis. We make no warranties about the completeness or accuracy of the content.</p>
+                
+                <h2>Contact</h2>
+                <p>For questions about these terms, contact: <a href="mailto:hi@jesusmartin.eu">hi@jesusmartin.eu</a></p>
+            </div>
+        </main>
+    </div>
+
+    <div id="about-view" style="display: none;">
+        <main class="about-content">
+            <div class="about-container">
+                <h1>About this project</h1>
+                <p>Hi there!</p>
+                <p>I'm <strong>Jesús Martín</strong>, a senior UX designer at Amazon Smart Vehicles. This project, "Bias in LLMs," is my attempt to reconcile my passion for new technologies with my deep commitment to <strong>diversity, equity, and inclusion (DEI)</strong> initiatives.</p>
+                <p>Two experiences triggered this project. First, I encountered an LLM's inability to solve a riddle about <strong>a pilot and a nurse</strong>. Then, out of curiosity, I asked an LLM to <strong>create a song with my name</strong>. These experiences made me realize the significant impact LLMs can have on reinforcing stereotypes and how that can affect people's lives.</p>
+                <p>It's important to acknowledge that <strong>LLMs have biases</strong>, but also to understand that this isn't fundamentally different from us humans. Just as we develop limitations based on our upbringing and context, LLMs are trained on large but limited sets of information.</p>
+                <p>Being aware of these limitations can help us, as users, take measures to <strong>avoid or mitigate the impact of biases</strong> in LLMs.</p>
+                <p>You might wonder if these biases really matter. While some examples might seem obvious, they reveal a deeper problem. If LLMs show clear bias in <strong>simple, detectable cases</strong>, imagine how many biased responses we might be receiving without noticing. These <strong>hidden biases</strong> could be quietly shaping our thoughts and decisions in ways we don't realize.</p>
+                <p>Should we expect users to carefully craft prompts to avoid bias, or should <strong>AI companies take more responsibility</strong>? While many organizations are working on Responsible AI initiatives, there's no easy solution. From my design perspective, addressing these issues might require adding <strong>extra steps or verification questions</strong> in the AI's responses - though this could make the experience less smooth for users.</p>
+                <p>Want to collaborate? Feel free to reach out to me at <a href="mailto:hi@jesusmartin.eu">hi@jesusmartin.eu</a>.</p>
+                <p class="support-paragraph">
+                    <i class="fas fa-coffee"></i> All the content here is <strong>free for everyone</strong> to use. 
+                    It's my way of promoting responsible AI use. 
+                    <span class="coffee-support">
+                        If you find it helpful and want to support future work, you can <a href="https://buymeacoffee.com/jesusmartin" target="_blank" class="coffee-link">buy me a coffee ☕</a>
+                    </span>
+                </p>
+            </div>
+        </main>
+    </div>
+
+    <footer id="main-footer">
+        <div class="footer-content">
+            <p>© 2025 Bias in LLMs Project</p>
+            <p>Created with ❤️ by <a href="https://jesusmartin.eu" target="_blank">Jesús Martín</a></p>
+        </div>
+    </footer>
+
+    <!-- Cookie Disclaimer -->
+    <div id="cookie-banner" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #333; color: white; padding: 1rem; z-index: 1000; text-align: center;">
+        <p>This website uses cookies to enhance your experience. <a href="#" onclick="showPrivacy()" style="color: #6366f1;">Privacy Policy</a> | <a href="#" onclick="showTerms()" style="color: #6366f1;">Terms of Service</a></p>
+        <button onclick="acceptCookies()" style="background: #6366f1; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; margin-left: 1rem; cursor: pointer;">Accept</button>
+    </div>
+
+    <script src="https://unpkg.com/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>
