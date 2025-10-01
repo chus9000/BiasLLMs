@@ -193,11 +193,14 @@ nav a {
 #cards-container {
     padding: 1rem;
     margin: 0 auto;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 /* Card Styles */
 .card {
-    width: 380px;
+    width: 100%;
+    max-width: 380px;
     margin-bottom: 16px;
     background: var(--bg-white);
     border-radius: 0 0 12px 12px;
@@ -808,7 +811,8 @@ a {
     }
 
     .card {
-        width: 100%;
+        width: 100% !important;
+        max-width: none !important;
     }
 
     .about-content {

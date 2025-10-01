@@ -59,6 +59,9 @@ function acceptCookies() {
 // Navigation functions
 function showHome() {
     currentView = 'home';
+    if (window.location.protocol !== 'file:') {
+        history.pushState({}, '', '/');
+    }
     document.getElementById('home-view').style.display = 'block';
     document.getElementById('detail-view').style.display = 'none';
     document.getElementById('about-view').style.display = 'none';
@@ -264,11 +267,20 @@ function initMasonry() {
         msnry.destroy();
     }
 
+    // Check if mobile view
+    const isMobile = window.innerWidth <= 700;
+    
+    if (isMobile) {
+        // On mobile, don't use masonry - just stack cards normally
+        grid.style.display = 'block';
+        return;
+    }
+
     msnry = new Masonry(grid, {
         itemSelector: '.card',
-        columnWidth: '.card',
+        columnWidth: 380,
         gutter: 16,
-        percentPosition: true,
+        percentPosition: false,
         fitWidth: true,
         transitionDuration: {
             transform: '0.4s',
