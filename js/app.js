@@ -96,6 +96,9 @@ function showTerms() {
 
 function showAbout() {
     currentView = 'about';
+    if (window.location.protocol !== 'file:') {
+        history.pushState({}, '', '/about');
+    }
     document.getElementById('home-view').style.display = 'none';
     document.getElementById('detail-view').style.display = 'none';
     document.getElementById('about-view').style.display = 'block';
